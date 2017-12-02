@@ -33,7 +33,7 @@ public class SingleSignOn implements java.io.Serializable
     
     /**
      * Returns the SSO.
-     * @return 
+     * @return the single sign on value
      */
     public int getSSO()
     {
