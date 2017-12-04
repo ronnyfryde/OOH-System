@@ -7,7 +7,7 @@ package out_of_hours_core;
 
 import java.util.*;
 /**
- *
+ * A shift in a quarter.
  * @author Skenn
  */
 public class Shift implements Comparable<Shift>

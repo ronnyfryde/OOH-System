@@ -6,10 +6,8 @@
 package out_of_hours_core;
 
 import java.util.*;
-import out_of_hours_core.SingleSignOn;
-import out_of_hours_core.User;
 /**
- *
+ * The Manager class represents an out of hours rota manager.
  * @author Skenn
  */
 public class Manager {
@@ -25,14 +23,14 @@ public class Manager {
     // Methods
     /**
      * Creates and returns a new user object.
-     * @param aName
-     * @param aPhoneNumber
-     * @param aEmail
-     * @param aSSO
-     * @param isEscalation
-     * @param isFirstLine
-     * @param isManager
-     * @return 
+     * @param aName - Name of the new user
+     * @param aPhoneNumber - Phone number of the new user.
+     * @param aEmail - Email address of the new user.
+     * @param aSSO - Unique identifier for the new user.
+     * @param isEscalation - If the engineer can perform escalation shifts.
+     * @param isFirstLine - If the engineer can perform first line shifts.
+     * @param isManager - If the new user is a out of hours rota manager.
+     * @return a new User object.
      */
     protected User CreateUser(String aName, String aPhoneNumber, String aEmail, SingleSignOn aSSO,
                                boolean isEscalation, boolean isFirstLine, boolean isManager)
@@ -45,7 +43,7 @@ public class Manager {
     
     /**
      * Sets password for aUser to default password "password".
-     * @param aUser
+     * @param aUser - User that has to be reset.
      */
     protected void resetPassword(User aUser)
     {
@@ -54,8 +52,8 @@ public class Manager {
     
     /**
      * Sets the SSO for aUser to aSSO.
-     * @param aUser
-     * @param aSSO 
+     * @param aUser - User who's SSO has to be reset
+     * @param aSSO - New unique identifier for the user.
      */
     protected void setSSO(User aUser, SingleSignOn aSSO)
     {
@@ -64,7 +62,8 @@ public class Manager {
     
     /**
      * Sets aUser firstLine and escalation to be false.
-     * @param aUser 
+     * The user will no longer be able to perform any shifts.
+     * @param aUser - The user to be disabled.
      */
     protected void disableEngineer(User aUser)
     {
@@ -73,9 +72,9 @@ public class Manager {
     }
     
     /**
-     * Sets aUser engineer isFirstLinee to be aBool.
-     * @param aUser
-     * @param aBool 
+     * Sets aUser engineer isFirstLine to be aBool.
+     * @param aUser - User to be changed.
+     * @param aBool - True if user can perform first line shifts.
      */
     protected void setFirstLine(User aUser, boolean aBool)
     {
@@ -84,8 +83,8 @@ public class Manager {
     
     /**
      * Sets aUser isEscalation to be aBool.
-     * @param aUser
-     * @param aBool 
+     * @param aUser - User to be changed.
+     * @param aBool - True if user can perform escalation shifts.
      */
     protected void setEscalation(User aUser, boolean aBool)
     {
@@ -94,8 +93,8 @@ public class Manager {
 
     /**
      * Creates or removes a Manager object for aUser.
-     * @param aUser
-     * @param aBool 
+     * @param aUser - User to be changed.
+     * @param aBool - True is user is a manager.
      */
     protected void setManager(User aUser, boolean aBool)
     {
@@ -104,9 +103,9 @@ public class Manager {
     
     /**
      * Changes Current engineer to new engineer a given shift.
-     * @param aShift
-     * @param currentEngineer
-     * @param newEngineer 
+     * @param aShift - Shift that needs altered.
+     * @param currentEngineer - Engineer currently assigned to the shift.
+     * @param newEngineer - Engineer that will be taking over the shift.
      */
     protected void changeShift(Shift aShift, Engineer currentEngineer, 
                                 Engineer newEngineer)
@@ -116,16 +115,16 @@ public class Manager {
     
     /**
      * Creates a Quarter object
-     * @param aNum
-     * @param aBool
-     * @param aDate
-     * @return 
+     * @param quarterNum - The number the represents the quarter (1-4)
+     * @param isLong - If the quarter is long, 14 weeks rather than 12 weeks.
+     * @param startDate - The date that the quarter will start on.
+     * @return A empty quarter object.
      */
-    public Quarter createQuarter(int aNum, boolean aBool, Date aDate)
+    public Quarter createQuarter(int quarterNum, boolean isLong, Date startDate)
     {
         try
         {
-            Quarter aQuarter = new Quarter(aNum, aBool, aDate);
+            Quarter aQuarter = new Quarter(quarterNum, isLong, startDate);
             return aQuarter;
         }
         catch(Exception aException)
@@ -136,8 +135,8 @@ public class Manager {
     }
     
     /**
-     * Generates shifts for the quarter.
-     * @param aQuarter 
+     * Generates shifts for a given quarter.
+     * @param aQuarter - The requires shifts.
      */
     public void generateShifts(Quarter aQuarter)
     {
@@ -146,7 +145,7 @@ public class Manager {
     
     /**
      * Assigns first line and escalation engineer to a shift.
-     * @param aQuarter
+     * @param aQuarter with populated shifts that will be assigned engineers.
      */
     public void assignShifts(Quarter aQuarter)
     {

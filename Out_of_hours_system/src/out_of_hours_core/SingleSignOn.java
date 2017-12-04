@@ -6,7 +6,8 @@
 package out_of_hours_core;
 
 /**
- *
+ * A single sign on (SSO) is a unique identifier user by employees
+ * to locate their accounts and to sign on to the system.
  * @author Skenn
  */
 public class SingleSignOn implements java.io.Serializable
@@ -17,7 +18,7 @@ public class SingleSignOn implements java.io.Serializable
     /**
      * Initialises the SSO value to a valid SSO.
      * @param aNumber
-     * @throws Exception 
+     * @throws Exception if the length of the SSO is not 8 digits.
      */
     public SingleSignOn(int aNumber) throws Exception
     {
@@ -33,7 +34,7 @@ public class SingleSignOn implements java.io.Serializable
     
     /**
      * Returns the SSO.
-     * @return the single sign on value
+     * @return the single sign on in digit form.
      */
     public int getSSO()
     {

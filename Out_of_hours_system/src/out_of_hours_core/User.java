@@ -58,7 +58,7 @@ public class User implements java.io.Serializable
     
     /**
      * Returns the users name.
-     * @return 
+     * @return the full name of the user.
      */
     protected String getName()
     {
@@ -67,7 +67,7 @@ public class User implements java.io.Serializable
     
     /**
      * Returns the phone number of the receiver.
-     * @return 
+     * @return Phone number of the user.
      */
     protected String getPhoneNumber()
     {
@@ -76,7 +76,7 @@ public class User implements java.io.Serializable
     
     /**
      * Returns the email of the receiver.
-     * @return 
+     * @return Email address of the user.
      */
     protected String getEmail()
     {
@@ -85,7 +85,7 @@ public class User implements java.io.Serializable
     
     /**
      * Return the SSO of the receiver.
-     * @return 
+     * @return The single sign on identifier of the user
      */
     protected SingleSignOn getSSO()
     {
@@ -170,7 +170,7 @@ public class User implements java.io.Serializable
 
     /**
      * Sets the receivers Engineers first line variable.
-     * @param aBool 
+     * @param aBool - True if user can perform first line shifts.
      */
     protected void setFirstLine(boolean aBool) 
     {
@@ -179,7 +179,7 @@ public class User implements java.io.Serializable
     
     /**
      * Sets the receivers Engineers escalation variable.
-     * @param aBool 
+     * @param aBool - True if user can perform escalation shifts.
      */
     protected void setEscalation(boolean aBool) 
     {
@@ -190,7 +190,7 @@ public class User implements java.io.Serializable
      * Creates or removes a manager object for the user
      * If a Manager already exists and aBool is true nothing happens
      * If a Manager does not exist and aBool is false nothing happens.
-     * @param aBool 
+     * @param aBool - True if user is an out of hours rota manager.
      */
     protected void setManager(boolean aBool)
     {

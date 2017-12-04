@@ -8,7 +8,9 @@ package out_of_hours_core;
 import java.util.*;
 
 /**
- *
+ * The Engineer class represents support engineer that may function
+ * in either a first line or escalation role.
+ * 
  * @author Skenn
  */
 public class Engineer {
@@ -22,8 +24,9 @@ public class Engineer {
     
     /**
      * Constructor for Engineer object.
-     * @param isEscalation
-     * @param isFirstLine 
+     * @param isEscalation - If the engineer can operate as an escalation engineer
+     * @param isFirstLine - If the engineer can operate as a first line engineer
+     * @param aUser - The user object that owns the engineer object.
      */
     protected Engineer(boolean isEscalation, boolean isFirstLine, User aUser)
     {
@@ -37,7 +40,7 @@ public class Engineer {
     // Getters
     /**
      * Returns true if the receiver is an Escalation Engineer.
-     * @return 
+     * @return True if the engineer is an escalation engineer.
      */
     public boolean isEscalation()
     {
@@ -46,7 +49,7 @@ public class Engineer {
     
     /**
      * Returns true is the receiver is a first line engineer.
-     * @return 
+     * @return True is the engineer is a first line engineer.
      */
     public boolean isFirstLine()
     {
@@ -54,8 +57,8 @@ public class Engineer {
     }
     
     /**
-     * Returns the number of shifts completed by the receiver.
-     * @return 
+     * Returns the number of shifts the receiver has been marked as available for.
+     * @return The number of shifts the receiver has been available for.
      */
     public int getShiftsAvailable()
     {
@@ -63,8 +66,8 @@ public class Engineer {
     }
     
     /**
-     * Returns the number of shifts available for the receiver.
-     * @return 
+     * Returns the number of shifts the receiver has been assigned.
+     * @return number of shifts the receiver has been assigned.
      */
     protected int getShiftsAssigned()
     {
@@ -74,7 +77,7 @@ public class Engineer {
     // Setters
     /**
      * Sets the isEscalation variable for the receiver.
-     * @param aBoolean 
+     * @param aBoolean - Marks if the engineer can perform escalation shifts.
      */
     protected void setEscalation(boolean aBoolean)
     {
@@ -83,7 +86,7 @@ public class Engineer {
     
     /**
      * Sets the isFirstLine variable for the receiver.
-     * @param aBoolean 
+     * @param aBoolean - Marks if the engineer can perform first line shifts. 
      */
     protected void setFirstLine(boolean aBoolean)
     {
