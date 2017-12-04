@@ -21,18 +21,18 @@ public class Quarter implements Comparable<Quarter> {
     
    /**
     * Constructor for quarter initialises quarter, isLong, shifts and startDate.
-    * @param aNum
-    * @param aBool
-    * @param aDate
-     * @throws java.lang.Exception
+    * @param quarterNum
+    * @param isLong
+    * @param startDate
+     * @throws java.lang.Exception if the start date is not a Monday or Friday.
     */
-    public Quarter(int quarter, boolean aBool, Date aDate) throws Exception
+    public Quarter(int quarterNum, boolean isLong, Date startDate) throws Exception
     {
-        System.out.println("Date = " + aDate);
+        System.out.println("Date = " + startDate);
         
         // Using a Calendar find the day of the week.
         Calendar cal = Calendar.getInstance();
-        cal.setTime(aDate);
+        cal.setTime(startDate);
         int day = cal.get(Calendar.DAY_OF_WEEK);
         
         System.out.println("day = " + day);
@@ -40,9 +40,9 @@ public class Quarter implements Comparable<Quarter> {
         
         if ( (day == Calendar.MONDAY) || (day == Calendar.FRIDAY) )
         {
-            this.quarter = quarter;
-            this.isLong = aBool;
-            this.startDate = aDate;
+            this.quarter = quarterNum;
+            this.isLong = isLong;
+            this.startDate = startDate;
             this.shifts = new TreeSet<>();  
         }
         else
@@ -54,7 +54,7 @@ public class Quarter implements Comparable<Quarter> {
        
    /**
     * Returns the start date of the receiver.
-    * @return 
+    * @return the date the quarter starts on.
     */
     public Date getStartDate()
     {
@@ -62,8 +62,9 @@ public class Quarter implements Comparable<Quarter> {
     }
     
     /**
-     * Returns the isLong boolean of the receiver.
-     * @return 
+     * Returns the isLong boolean of the receiver which indicates if the quarter
+     * will be 13 weeks or 14 weeks (true if the quarter is 14 weeks).
+     * @return True if the quarter is 14 weeks long.
      */
     public boolean getLong()
     {
@@ -72,7 +73,7 @@ public class Quarter implements Comparable<Quarter> {
     
     /**
      * Returns the quarter of the receiver.
-     * @return 
+     * @return an integer representing the quarter of the year.
      */
     public int getQuarter()
     {
@@ -81,7 +82,7 @@ public class Quarter implements Comparable<Quarter> {
     
     /**
      * Returns the number of shifts in the quarter.
-     * @return 
+     * @return The number of shifts that have been created for the quarter.
      */
     public int getNumberOfShifts()
     {
@@ -90,7 +91,7 @@ public class Quarter implements Comparable<Quarter> {
     
     /**
      * Returns the shifts for the receiver.
-     * @return 
+     * @return A set of shifts linked to the quarter.
      */
     public SortedSet<Shift> getShifts()
     {

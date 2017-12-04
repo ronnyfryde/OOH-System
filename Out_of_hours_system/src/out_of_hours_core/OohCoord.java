@@ -8,7 +8,9 @@ package out_of_hours_core;
 import java.io.Serializable;
 import java.util.*;
 /**
- *
+ * This is the coordinating class the will control interaction to objects in
+ * the core system.
+ * 
  * @author Skenn
  */
 public class OohCoord implements Serializable
@@ -18,7 +20,8 @@ public class OohCoord implements Serializable
     private Collection<Quarter> quarters;
     
     /**
-     * 
+     * Constructor: Creates a new OohCoord object. There can only be one
+     * coordinating object in a system.
      */
     public OohCoord()
     {
@@ -30,7 +33,7 @@ public class OohCoord implements Serializable
     
     /**
      * Returns a set of users linked to the receiver.
-     * @return 
+     * @return all users in the system.
      */
     public Collection<User> getUsers()
     {
@@ -40,8 +43,8 @@ public class OohCoord implements Serializable
     /**
      * Returns all the shifts for the quarter provided
      * as an argument.
-     * @param aQuarter
-     * @return 
+     * @param aQuarter containing shifts.
+     * @return The shifts in the quarter.
      */
     public Collection<Shift> getShifts(Quarter aQuarter)
     {
@@ -50,7 +53,7 @@ public class OohCoord implements Serializable
     
     /**
      * Returns all quarters.
-     * @return 
+     * @return all quarters in the system
      */
     public Collection<Quarter> getQuarters()
     {
@@ -59,8 +62,8 @@ public class OohCoord implements Serializable
     
     /**
      * Returns the two types of engineer assigned to the shift.
-     * @param aShift
-     * @return 
+     * @param aShift that has assigned engineers.
+     * @return the engineers assigned to the shift.
      */
     public Map<Type, Engineer> getShiftEngineers(Shift aShift)
     {
@@ -124,8 +127,8 @@ public class OohCoord implements Serializable
      * matches that Users Password.
      * @param aSSO
      * @param aPassword
-     * @return
-     * @throws Exception 
+     * @return the user object with the specified unique identifier.
+     * @throws Exception if the username or password is incorrect.
      */
     public User login(SingleSignOn aSSO, String aPassword) throws Exception
     {
@@ -143,14 +146,14 @@ public class OohCoord implements Serializable
     /**
      * Create a quarter and adds the quarters to the quarters collection.
      * @param aManager
-     * @param aNum
-     * @param aBool
-     * @param aDate 
+     * @param quarterNum
+     * @param isLong
+     * @param startDate 
      */
-    public void createQuarter(Manager aManager, int aNum, Boolean aBool, 
-                            Date aDate)
+    public void createQuarter(Manager aManager, int quarterNum, Boolean isLong, 
+                            Date startDate)
     {
-        Quarter aQuarter = aManager.createQuarter(aNum, aBool, aDate);
+        Quarter aQuarter = aManager.createQuarter(quarterNum, isLong, startDate);
         this.quarters.add(aQuarter);
     }
     
